@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_order_state_confirmed_inherit" model="ir.ui.view">
+            <field name="name">Approved</field>
+            <field name="model">sale.order</field>
+            <field name="inherit_id" ref="sale.view_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='state']" position="attributes">
+                    <attribute name="state"/>
+                </xpath>
+                <button name="action_confirm" position="after">
+                    <button name="send_by_mail" string="Send by Email" type="object" states="approved"
+                            class="btn-primary" data-hotkey="g"/>
+                </button>
+            </field>
+        </record>
+    </data>
+</odoo>

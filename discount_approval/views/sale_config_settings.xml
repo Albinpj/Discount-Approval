@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_order_form_inherit" model="ir.ui.view">
+            <field name="name">Discount Limit</field>
+            <field name="model">res.config.settings</field>
+            <field name="inherit_id" ref="sale.res_config_settings_view_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//div[@id='pricing_setting_container']" position="after">
+                    <div class="row mt16 o_settings_container">
+                        <div class="col-12 col-lg-6 o_setting_box"
+                             title="If The Discount Limit Exceeded Its Approved By The Manager">
+                            <div class="o_setting_left_pane">
+                                <field name="discount_limit"/>
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label for="discount_limit"/>
+                                <div class="text-muted">
+                                    Discount Limit For The Sale Orders
+                                </div>
+                                <div class="content-group" attrs="{'invisible': [('discount_limit', '=', False)]}">
+                                    <div class="row mt16">
+                                        <label for="minimum_amount" class="col-lg-4 o_light_label"/>
+                                        <field name="minimum_amount"/>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>
